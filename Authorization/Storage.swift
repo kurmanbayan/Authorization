@@ -7,6 +7,7 @@
 //
 
 import Cache
+import Kingfisher
 
 private struct Caches {
     static let jsonCache = SpecializedCache<JSON>(name: "JSON Cache")
@@ -37,4 +38,10 @@ struct Storage {
         }
     }
     
+    static func imageDownloader(url: URL) {
+        ImageDownloader.default.downloadImage(with: url, options: [], progressBlock: nil) {
+            (image, error, url, data) in
+            ImageCache.default.store(image!, forKey: "\(url!)")
+        }
+    }
 }

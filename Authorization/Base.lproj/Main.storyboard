@@ -275,6 +275,15 @@
                                                     <action selector="logOutButton:" destination="AUa-pU-btm" eventType="touchUpInside" id="tfd-j6-lnE"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcy-bI-SZd">
+                                                <rect key="frame" x="40" y="224" width="295" height="30"/>
+                                                <state key="normal" title="Очистить кэш ">
+                                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clearCache:" destination="AUa-pU-btm" eventType="touchUpInside" id="WLx-Bc-jer"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -287,9 +296,12 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="2nt-4V-cv7" secondAttribute="trailing" constant="142" id="M3e-TJ-Jbd"/>
                                             <constraint firstItem="2nt-4V-cv7" firstAttribute="leading" secondItem="BBV-YC-hUj" secondAttribute="leadingMargin" constant="141" id="M9D-R9-kIX"/>
                                             <constraint firstItem="9lv-Pi-b6s" firstAttribute="leading" secondItem="BBV-YC-hUj" secondAttribute="leading" constant="20" id="Q22-fh-uyc"/>
+                                            <constraint firstItem="Lcy-bI-SZd" firstAttribute="top" secondItem="aXs-ts-4Wd" secondAttribute="bottom" constant="15" id="Tgn-oN-AmS"/>
                                             <constraint firstItem="aXs-ts-4Wd" firstAttribute="top" secondItem="9lv-Pi-b6s" secondAttribute="bottom" constant="10" id="czS-ns-4iE"/>
                                             <constraint firstItem="9lv-Pi-b6s" firstAttribute="top" secondItem="2nt-4V-cv7" secondAttribute="bottom" constant="10" id="pgT-fH-i3f"/>
                                             <constraint firstAttribute="bottom" secondItem="utZ-x8-xqr" secondAttribute="bottom" constant="128" id="rc0-sS-Bri"/>
+                                            <constraint firstAttribute="trailing" secondItem="Lcy-bI-SZd" secondAttribute="trailing" constant="40" id="rdn-6M-1gM"/>
+                                            <constraint firstItem="Lcy-bI-SZd" firstAttribute="leading" secondItem="BBV-YC-hUj" secondAttribute="leading" constant="40" id="rj6-6M-Fwj"/>
                                         </constraints>
                                     </view>
                                 </subviews>

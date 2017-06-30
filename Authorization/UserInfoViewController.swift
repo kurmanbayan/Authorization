@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import Kingfisher
 
 class UserInfoViewController: UIViewController {
 
@@ -31,7 +32,6 @@ class UserInfoViewController: UIViewController {
         self.userImageView.clipsToBounds = true;
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         changeImageViewStyle()
@@ -39,10 +39,26 @@ class UserInfoViewController: UIViewController {
         loadImageAsync(url: user.imageUrl)
     }
     
+    // cache
     private func loadImageAsync(url: String) {
         userImageView.sd_setShowActivityIndicatorView(true)
         userImageView.sd_setIndicatorStyle(.gray)
-        userImageView.sd_setImage(with: URL(string: user.imageUrl))
+        
+        ImageCache.default.retrieveImage(forKey: url, options: nil) {
+            image, cacheType in
+            if let image = image {
+                print("Get image \(image), cacheType: \(cacheType).")
+                self.userImageView.image = image
+            } else {
+                print("Not exist in cache.")
+                self.userImageView.sd_setImage(with: URL(string: url))
+                Storage.imageDownloader(url: URL(string: url)!)
+            }
+        }
+    }
+    
+    @IBAction func clearCache(_ sender: UIButton) {
+        ImageCache.default.removeImage(forKey: user.imageUrl)
     }
     
     private func updateUI() {
